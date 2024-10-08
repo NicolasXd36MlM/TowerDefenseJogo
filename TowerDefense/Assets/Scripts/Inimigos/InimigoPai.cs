@@ -11,7 +11,7 @@ public class InimigoPai : MonoBehaviour
     [SerializeField] private float velocidade = 1f;
 
     private Transform objetivo;
-    private int caminhoIndex;
+    private int caminhoIndex = 0;
     // Start is called before the first frame update
     private void Start()
     {
@@ -37,11 +37,12 @@ public class InimigoPai : MonoBehaviour
 
             }
         }
+        CorrigirCaminho();
     }
     private void CorrigirCaminho() // vai manter o inimigo no caminho certo e manter ele em direção ao objetivo
     {
-        Vector2 direcao = (objetivo.position = transform.position).normalized;
-    
+        Vector2 direcao = (objetivo.position - transform.position).normalized;
+
         corpo.velocity = direcao * velocidade; //define que o corpo vai se mover para a proxima possição marcada
     }
 }

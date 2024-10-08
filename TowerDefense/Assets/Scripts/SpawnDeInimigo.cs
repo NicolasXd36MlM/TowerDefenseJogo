@@ -22,16 +22,23 @@ public class SpawnDeInimigo : MonoBehaviour
     private int inimigosEsperando;
     private bool nascendoIni = false;
 
+    private void Start()
+    {
+        OndaInicial();
+    }
+
     private void Update()
     {
         if (!nascendoIni) return; 
         tempoDaUltimaOnda += Time.deltaTime;
 
-        if (tempoDaUltimaOnda >= (1f / quantidadeDeInimgoPerSec))
-            Debug.Log("Nasceu!");
+        if (tempoDaUltimaOnda >= (1f / quantidadeDeInimgoPerSec) && inimigosEsperando > 0)
         {
-        
-        
+            MensagemNasceu();
+            inimigosEsperando--;
+            inimigosVivos++;
+            tempoDaUltimaOnda = 0f;
+
         }
     }
 
@@ -40,6 +47,10 @@ public class SpawnDeInimigo : MonoBehaviour
         inimigosEsperando = EniPorOnda();
     }
 
+    private void MensagemNasceu() 
+    {
+        Debug.Log("Nasceu!");
+    }
     private int EniPorOnda() 
     {
         return Mathf.RoundToInt(BaseDoInimigo * Mathf.Pow(ondaAtual, dificuldade));
