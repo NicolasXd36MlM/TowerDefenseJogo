@@ -10,17 +10,17 @@ public  class TorresPai : MonoBehaviour, ITorres
 
     public bool atirrarBase;
 
-    public void atirrar()
+    public void Atirrar()
     {
     
     }
 
-    public void velocidade()
+    public void Velocidade()
     {
        
     }
 
-    public void vida()
+    public void Vida()
     {
        
     }
