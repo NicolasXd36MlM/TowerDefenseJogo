@@ -11,9 +11,9 @@ public class InimigoPai : MonoBehaviour
     [SerializeField] private float velocidade = 1f;
 
     private Transform objetivo;
-    private int caminhoIndex = 0;
+    private int caminhoIndex;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         objetivo = LevelManager.main.caminhos[caminhoIndex]; //define o caminho para o objetivo final
     }
