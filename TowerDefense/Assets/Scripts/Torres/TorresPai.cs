@@ -2,26 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public  class TorresPai : MonoBehaviour, ITorres
+public class TorresPai : MonoBehaviour
 {
-    public int vidaBase;
-
-    public int velocidadeBase;
-
-    public bool atirrarBase;
-
-    public void Atirrar()
+    // Start is called before the first frame update
+    void Start()
     {
-    
+        
     }
 
-    public void Velocidade()
+    // Update is called once per frame
+    void Update()
     {
-       
-    }
-
-    public void Vida()
-    {
-       
+        
     }
 }

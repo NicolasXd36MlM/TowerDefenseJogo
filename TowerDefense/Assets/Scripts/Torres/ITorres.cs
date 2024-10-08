@@ -6,6 +6,8 @@ public interface ITorres
 {
    void Atirrar ();
 
+    void vida();
 
+    void velocidade();
 
 }
