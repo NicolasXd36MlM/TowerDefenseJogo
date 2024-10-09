@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2557497443967019115
+--- !u!1 &2919231350564486145
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4101888336265072303}
-  - component: {fileID: 6105716908070271777}
-  - component: {fileID: 7656519612253095785}
-  - component: {fileID: 7272354854797925802}
-  - component: {fileID: 1568992350527010232}
+  - component: {fileID: 5223406175767992567}
+  - component: {fileID: 5296846842704045926}
+  - component: {fileID: 2015572863957868415}
+  - component: {fileID: 7461300813638335246}
+  - component: {fileID: 3611148330219428509}
+  - component: {fileID: 3794160645308021264}
   m_Layer: 0
-  m_Name: Inimigo
+  m_Name: Inimigo 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!4 &4101888336265072303
+--- !u!4 &5223406175767992567
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2557497443967019115}
+  m_GameObject: {fileID: 2919231350564486145}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.51, y: -8.92, z: 0}
-  m_LocalScale: {x: 0.4646671, y: 0.4646671, z: 0.96464}
+  m_LocalPosition: {x: 0.6733283, y: 4.415019, z: 0}
+  m_LocalScale: {x: 0.96229655, y: 0.9293342, z: 0.96464}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6105716908070271777
+--- !u!212 &5296846842704045926
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2557497443967019115}
+  m_GameObject: {fileID: 2919231350564486145}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -87,14 +88,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &7656519612253095785
+--- !u!50 &2015572863957868415
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2557497443967019115}
+  m_GameObject: {fileID: 2919231350564486145}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -114,13 +115,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &7272354854797925802
+--- !u!58 &7461300813638335246
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2557497443967019115}
+  m_GameObject: {fileID: 2919231350564486145}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -149,17 +150,33 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1568992350527010232
+--- !u!114 &3611148330219428509
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2557497443967019115}
+  m_GameObject: {fileID: 2919231350564486145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e326812d363834ca77976452c71e77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabInimigo: {fileID: 2919231350564486145}
+  QuantiInimigo: 8
+  quantidadeDeInimgoPerSec: 0.5
+  dificuldade: 0.6
+--- !u!114 &3794160645308021264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2919231350564486145}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c87f4c025de597540bcb0916ec67bf92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  corpo: {fileID: 7656519612253095785}
+  corpo: {fileID: 2015572863957868415}
   velocidade: 1

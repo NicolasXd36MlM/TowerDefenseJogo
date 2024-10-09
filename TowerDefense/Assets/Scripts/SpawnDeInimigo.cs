@@ -1,18 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class SpawnDeInimigo : MonoBehaviour
 {
-    [SerializeField] 
-    private GameObject[] prefabInimigo;
+    [SerializeField]
+    private GameObject PrefabInimigo;
 
     [SerializeField]
-    private int BaseDoInimigo;
+    private int QuantiInimigo = 8;
     [SerializeField]
     private float quantidadeDeInimgoPerSec = 0.5f;
-    [SerializeField]
-    private float intervaloDeTempo = 3f;
+    //[SerializeField]
+    //private float intervaloDeTempo = 3f;
     [SerializeField]
     private float dificuldade = 0.60f;
 
@@ -38,7 +40,7 @@ public class SpawnDeInimigo : MonoBehaviour
             inimigosEsperando--;
             inimigosVivos++;
             tempoDaUltimaOnda = 0f;
-
+            
         }
     }
 
@@ -49,11 +51,13 @@ public class SpawnDeInimigo : MonoBehaviour
 
     private void MensagemNasceu() 
     {
-        Debug.Log("Nasceu!");
+        gameObject.GetComponent<InimigoPai>();
+        Instantiate(PrefabInimigo, LevelManager.main.começo.position,  Quaternion.identity);
+        Debug.Log("Nasceu!!");
     }
     private int EniPorOnda() 
     {
-        return Mathf.RoundToInt(BaseDoInimigo * Mathf.Pow(ondaAtual, dificuldade));
+        return Mathf.RoundToInt(QuantiInimigo * Mathf.Pow(ondaAtual, dificuldade));
     
     }
 }
