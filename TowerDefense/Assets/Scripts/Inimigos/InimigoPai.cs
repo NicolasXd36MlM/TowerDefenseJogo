@@ -6,9 +6,13 @@ public class InimigoPai : MonoBehaviour
 {
     [Header("Referencias")]
     [SerializeField] private Rigidbody2D corpo;
+<<<<<<< Updated upstream
 
     [Header("Atributos")]
     [SerializeField] private float velocidade = 1f;
+=======
+    [SerializeField] private float velocidade = 3f;
+>>>>>>> Stashed changes
 
     private Transform objetivo;
     private int caminhoIndex = 0;
