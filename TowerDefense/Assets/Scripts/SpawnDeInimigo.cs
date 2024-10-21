@@ -13,11 +13,10 @@ public class SpawnDeInimigo : MonoBehaviour
     private int QuantiInimigo;
     [SerializeField]
     private float quantidadeDeInimgoPerSec;
-   /* [SerializeField]
-    private float intervaloDeTempo = 3f; */
+    /*[SerializeField]
+    private float intervaloDeTempo = 3f;*/
     [SerializeField]
     private float dificuldade = 0.75f;
-
 
     private readonly int ondaAtual = 1;
     private float tempoDaUltimaOnda;
@@ -34,10 +33,9 @@ public class SpawnDeInimigo : MonoBehaviour
         if (tempoDaUltimaOnda >= (1f / quantidadeDeInimgoPerSec) && inimigosVivos > 0)
         {
             MensagemNasceu();
-
             inimigosEsperando--;
             inimigosVivos--;
-            tempoDaUltimaOnda = 2f;
+            tempoDaUltimaOnda = 0f;
         }
 
     }
@@ -54,10 +52,6 @@ public class SpawnDeInimigo : MonoBehaviour
     }
     private void MensagemNasceu() 
     {
-        gameObject.GetComponent<InimigoPai>();
-        Instantiate(PrefabInimigo, LevelManager.main.começo.eulerAngles,  Quaternion.identity);
-        Debug.Log("Nasceu!!");
-
         for (int i = 0; i < 10; i++)
         {
             gameObject.GetComponent<InimigoPai>();
@@ -66,7 +60,6 @@ public class SpawnDeInimigo : MonoBehaviour
             i++;
         }
        
-
     }
     private int EniPorOnda() //inimigos por onda
     {
