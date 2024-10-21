@@ -4,28 +4,23 @@ using UnityEngine;
 
 public class InimigoPai : MonoBehaviour
 {
-    [Header("Referencias")]
     [SerializeField] private Rigidbody2D corpo;
-<<<<<<< Updated upstream
+    [SerializeField] private float velocidade = 5f;
 
-    [Header("Atributos")]
-    [SerializeField] private float velocidade = 1f;
-=======
-    [SerializeField] private float velocidade = 3f;
->>>>>>> Stashed changes
 
     private Transform objetivo;
-    private int caminhoIndex = 0;
+    private int caminhoIndex = 20;
     // Start is called before the first frame update
     void Start()
     {
         objetivo = LevelManager.main.caminhos[caminhoIndex]; //define o caminho para o objetivo final
+        Update();
     }
 
     // Update is called once per frame
     void Update() //vai definir o objetivo final
     {
-        if (Vector2.Distance(objetivo.position, transform.position) <= 0.1f) //checar se a distancia do objetivo esta na posição igual ou menor que 0.3
+        if (Vector2.Distance(objetivo.position, transform.position) <= 0.3f) //checar se a distancia do objetivo esta na posição igual ou menor que 0.3
         {
             caminhoIndex++; //  vai aumentar em 1 a distancia do objetivo
             
