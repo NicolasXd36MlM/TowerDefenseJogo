@@ -7,32 +7,41 @@ public class InimigoPai : MonoBehaviour
     [SerializeField] private Rigidbody2D corpo;
     [SerializeField] private float velocidade = 5f;
 
-
     private Transform objetivo;
-    private int caminhoIndex = 20;
+    private int caminhoIndex = 18;
     // Start is called before the first frame update
     void Start()
     {
-        objetivo = LevelManager.main.caminhos[caminhoIndex]; //define o caminho para o objetivo final
-        Update();
+        // Verifica se o LevelManager e Caminhos estão corretamente configurados
+        if (LevelManager.main != null && LevelManager.main.Caminhos != null && LevelManager.main.Caminhos.Length > 0)
+        {
+            objetivo = LevelManager.main.Caminhos[caminhoIndex]; // Define o objetivo inicial
+        }
+        /*
+        else
+        {
+            Debug.LogError("LevelManager ou Caminhos não foram inicializados corretamente.");
+            Destroy(gameObject); // Destroi o inimigo para evitar problemas futuros
+        } */
     }
 
     // Update is called once per frame
     void Update() //vai definir o objetivo final
     {
+        Debug.LogError("Problema com o update");
         if (Vector2.Distance(objetivo.position, transform.position) <= 0.3f) //checar se a distancia do objetivo esta na posição igual ou menor que 0.3
         {
             caminhoIndex++; //  vai aumentar em 1 a distancia do objetivo
-            
+            Debug.LogError("Problema com o If");
 
-            if (caminhoIndex >= LevelManager.main.caminhos.Length) // se o caminho foi menor ou igual o "final" 
+            if (caminhoIndex >= LevelManager.main.Caminhos.Length) // se o caminho foi menor ou igual o "final" 
             {
             Destroy(gameObject); //destroi o inimigo
             return; //cria um novo inimigo
             }
             else 
             {
-                objetivo = LevelManager.main.caminhos[caminhoIndex];
+                objetivo = LevelManager.main.Caminhos[caminhoIndex];
 
             }
         }

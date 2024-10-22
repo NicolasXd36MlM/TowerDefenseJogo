@@ -162,4 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   corpo: {fileID: 7656519612253095785}
-  velocidade: 1
+  velocidade: 3
