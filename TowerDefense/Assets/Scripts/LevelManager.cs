@@ -8,7 +8,6 @@ public class LevelManager : MonoBehaviour
     public static LevelManager main;
     public Transform[] Caminhos; //onde o inimigo vai passar
     public Transform começo;// onde aparece o inimigo
-    public Transform final;
 
     private void Awake()
     {

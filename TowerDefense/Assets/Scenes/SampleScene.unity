@@ -1165,104 +1165,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3243782906301510895, guid: d46753a7d8d5e6e4b8ca7f63c2217c6a, type: 3}
   m_PrefabInstance: {fileID: 352989057}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &397471328
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 397471332}
-  - component: {fileID: 397471331}
-  - component: {fileID: 397471330}
-  - component: {fileID: 397471329}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &397471329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 397471328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5e326812d363834ca77976452c71e77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PrefabInimigo: {fileID: 2557497443967019115, guid: 466af6ebdd6104a45af5d1ff54644ac9, type: 3}
-  QuantiInimigo: 5
-  quantidadeDeInimgoPerSec: 2
-  dificuldade: 0.75
---- !u!114 &397471330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 397471328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e585c236db687ec43a1342a67a90d6c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &397471331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 397471328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 067676bffb65db547a01027b90db67ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Caminhos:
-  - {fileID: 1685029632}
-  - {fileID: 1733016032}
-  - {fileID: 755259406}
-  - {fileID: 1638919888}
-  - {fileID: 887547950}
-  - {fileID: 831460800}
-  - {fileID: 403348923}
-  - {fileID: 704617587}
-  - {fileID: 139573173}
-  - {fileID: 5586724}
-  - {fileID: 973170856}
-  - {fileID: 576744938}
-  - {fileID: 1248353418}
-  - {fileID: 1905884907}
-  - {fileID: 1236940907}
-  - {fileID: 1935892582}
-  - {fileID: 1174390439}
-  - {fileID: 1593629940}
-  - {fileID: 1984529751}
-  - {fileID: 1485690089}
-  "come\xE7o": {fileID: 1685029632}
-  final: {fileID: 1485690089}
---- !u!4 &397471332
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 397471328}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3039646, y: 2.1800923, z: -0.18117994}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1058308500}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &400330936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3243782906301510895, guid: d46753a7d8d5e6e4b8ca7f63c2217c6a, type: 3}
@@ -1820,7 +1722,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.035866853, g: 0.24528301, b: 0.052958596, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2267,15 +2169,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4314749024579027591, guid: 504a9b80851280c468176cb7b66f87b5, type: 3}
       propertyPath: m_Color.b
-      value: 0.2798347
+      value: 0.38995194
       objectReference: {fileID: 0}
     - target: {fileID: 4314749024579027591, guid: 504a9b80851280c468176cb7b66f87b5, type: 3}
       propertyPath: m_Color.g
-      value: 0.22152
+      value: 0.6509434
       objectReference: {fileID: 0}
     - target: {fileID: 4314749024579027591, guid: 504a9b80851280c468176cb7b66f87b5, type: 3}
       propertyPath: m_Color.r
-      value: 0.284
+      value: 0.5447364
       objectReference: {fileID: 0}
     - target: {fileID: 4314749024579027591, guid: 504a9b80851280c468176cb7b66f87b5, type: 3}
       propertyPath: m_SortingOrder
@@ -3532,6 +3434,101 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3243782906301510895, guid: d46753a7d8d5e6e4b8ca7f63c2217c6a, type: 3}
   m_PrefabInstance: {fileID: 1020842950}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1038497639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1038497642}
+  - component: {fileID: 1038497641}
+  - component: {fileID: 1038497640}
+  - component: {fileID: 1038497643}
+  m_Layer: 0
+  m_Name: LevelManeger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1038497640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038497639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 067676bffb65db547a01027b90db67ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Caminhos:
+  - {fileID: 1733016032}
+  - {fileID: 755259406}
+  - {fileID: 1638919888}
+  - {fileID: 887547950}
+  - {fileID: 831460800}
+  - {fileID: 403348923}
+  - {fileID: 704617587}
+  - {fileID: 139573173}
+  - {fileID: 5586724}
+  - {fileID: 973170856}
+  - {fileID: 576744938}
+  - {fileID: 1248353418}
+  - {fileID: 1905884907}
+  - {fileID: 1236940907}
+  - {fileID: 1935892582}
+  - {fileID: 1174390439}
+  - {fileID: 1593629940}
+  - {fileID: 1984529751}
+  - {fileID: 1485690089}
+  "come\xE7o": {fileID: 1685029632}
+--- !u!114 &1038497641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038497639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e585c236db687ec43a1342a67a90d6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1038497642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038497639}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.03016643, y: 1.8225303, z: -0.18823484}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1038497643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038497639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e326812d363834ca77976452c71e77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabInimigo: {fileID: 2557497443967019115, guid: 466af6ebdd6104a45af5d1ff54644ac9, type: 3}
+  QuantiInimigo: 5
+  quantidadeDeInimgoPerSec: 1
+  dificuldade: 0.75
 --- !u!1 &1058308499
 GameObject:
   m_ObjectHideFlags: 0
@@ -3542,7 +3539,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1058308500}
   - component: {fileID: 1058308501}
-  - component: {fileID: 1058308502}
   m_Layer: 0
   m_Name: Caminhos
   m_TagString: Untagged
@@ -3559,7 +3555,7 @@ Transform:
   m_GameObject: {fileID: 1058308499}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.9506165, y: -3.490994, z: 0.18117994}
+  m_LocalPosition: {x: 0.35334814, y: -1.3109016, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3583,7 +3579,7 @@ Transform:
   - {fileID: 1593629940}
   - {fileID: 1984529751}
   - {fileID: 1485690089}
-  m_Father: {fileID: 397471332}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1058308501
 MonoBehaviour:
@@ -3598,7 +3594,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Caminhos:
-  - {fileID: 1685029632}
   - {fileID: 1733016032}
   - {fileID: 755259406}
   - {fileID: 1638919888}
@@ -3619,21 +3614,6 @@ MonoBehaviour:
   - {fileID: 1984529751}
   - {fileID: 1485690089}
   "come\xE7o": {fileID: 1685029632}
-  final: {fileID: 1485690089}
---- !u!114 &1058308502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058308499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87f4c025de597540bcb0916ec67bf92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  corpo: {fileID: 0}
-  velocidade: 5
 --- !u!1001 &1073577650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5098,7 +5078,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Caminhos: []
   "come\xE7o": {fileID: 1685029632}
-  final: {fileID: 1485690089}
 --- !u!1001 &1497578321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5637,7 +5616,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Caminhos: []
   "come\xE7o": {fileID: 1685029632}
-  final: {fileID: 0}
 --- !u!1001 &1695345621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6808,7 +6786,8 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 519420032}
-  - {fileID: 397471332}
-  - {fileID: 2030893680}
   - {fileID: 679529635}
+  - {fileID: 519420032}
+  - {fileID: 1038497642}
+  - {fileID: 2030893680}
+  - {fileID: 1058308500}
