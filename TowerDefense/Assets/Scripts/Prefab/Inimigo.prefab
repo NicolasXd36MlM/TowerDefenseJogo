@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7656519612253095785}
   - component: {fileID: 7272354854797925802}
   - component: {fileID: 5510291660454037800}
-  - component: {fileID: 1457740453458313565}
   m_Layer: 0
   m_Name: Inimigo
   m_TagString: Untagged
@@ -162,20 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87f4c025de597540bcb0916ec67bf92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  corpo: {fileID: 7656519612253095785}
-  velocidade: 5
---- !u!114 &1457740453458313565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2557497443967019115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 067676bffb65db547a01027b90db67ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Caminhos:
-  - {fileID: 894093296838330753, guid: 74a1dcdc7001e354a94979897ef8249e, type: 3}
-  "come\xE7o": {fileID: 539178551171875669, guid: 8b690a80ffc81d14b8a4bbde56b2e7bb, type: 3}
+  separacao: 1
+  prefabInimigo: {fileID: 2557497443967019115}
+  velocidade: 2
