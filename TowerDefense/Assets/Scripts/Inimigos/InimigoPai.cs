@@ -9,6 +9,8 @@ public class InimigoPai : MonoBehaviour
     public float velocidade = 5f;          // Velocidade do inimigo
     private Transform objetivo;             // Ponto de destino
     private int caminhoIndex = 0;          // Índice do caminho atual
+    [SerializeField]
+    public int vida;
 
     void Start()
     {
@@ -18,7 +20,7 @@ public class InimigoPai : MonoBehaviour
     {
         MoverInimigo();
     }
-    void MoverInimigo()
+    protected void MoverInimigo()
     {
         if (objetivo == null) return; // Se não há objetivo, não faz nada
 
@@ -54,7 +56,7 @@ public class InimigoPai : MonoBehaviour
         }
     }
 
-    void AtualizarObjetivo()
+   public void AtualizarObjetivo()
     {
         // Atualiza o objetivo com base no índice do caminho
         if (caminhoIndex < LevelManager.main.caminho.Length)
@@ -76,6 +78,16 @@ public class InimigoPai : MonoBehaviour
             // Configura o objetivo inicial para o inimigo instanciado
             InimigoPai inimigoScript = novoInimigo.GetComponent<InimigoPai>();
             inimigoScript.AtualizarObjetivo();  // Define o primeiro objetivo
+        }
+    }
+
+    public virtual void ReceberDano(int dano)
+    {
+        vida -= dano; // Subtrai a vida do inimigo
+
+        if (vida <= 0)
+        {
+            Destroy(gameObject); // Destrói o inimigo se a vida chegar a 0
         }
     }
 }

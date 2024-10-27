@@ -12,8 +12,8 @@ public class SpawnDeInimigo : MonoBehaviour
     private int QuantiInimigo = 10; // Quantidade total de inimigos por onda
     [SerializeField]
     private float quantidadeDeInimgoPerSec;
-    [SerializeField]
-    private float intervaloDeTempo = 3f;
+    /*[SerializeField]
+    private float intervaloDeTempo = 3f;*/
     [SerializeField]
     private float dificuldade = 0.75f;
 

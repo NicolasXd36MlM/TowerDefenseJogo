@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InimigoBoss : MonoBehaviour
+public class InimigoBoss : InimigoPai
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
+        vida = 10; // Um inimigo forte tem mais vida
+        velocidade = 2f;
+        Start(); // Chama o método Start da classe base
+        MoverInimigo();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        MoverInimigo(); // Move o inimigo no Update
     }
 }

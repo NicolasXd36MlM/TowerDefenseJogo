@@ -3528,7 +3528,6 @@ MonoBehaviour:
   PrefabInimigo: {fileID: 2557497443967019115, guid: 466af6ebdd6104a45af5d1ff54644ac9, type: 3}
   QuantiInimigo: 30
   quantidadeDeInimgoPerSec: 0.4
-  intervaloDeTempo: 10
   dificuldade: 0.75
 --- !u!1 &1058308499
 GameObject:
