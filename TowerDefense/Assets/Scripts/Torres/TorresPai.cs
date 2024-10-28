@@ -35,5 +35,21 @@ public class Torre : MonoBehaviour
         Quaternion rotacao = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotacao, velocidadeRotacao * Time.deltaTime);
     }
+
+    public class Arma : MonoBehaviour
+    {
+        public GameObject prefabBala; // Prefab da bala
+        public Transform pontoDisparo; // Ponto de disparo
+
+        void Atirar()
+        {
+            GameObject bala = Instantiate(prefabBala, pontoDisparo.position, pontoDisparo.rotation);
+            Rigidbody2D rb = bala.GetComponent<Rigidbody2D>();
+            rb.velocity = pontoDisparo.up * rb.GetComponent<Tiro>().velocidade; // Aplica a velocidade na direção do ponto de disparo
+
+            // A rotação já deve estar correta ao instanciar a bala
+            bala.transform.rotation = pontoDisparo.rotation;
+        }
+    }
 }
 
