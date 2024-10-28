@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class InimigoCriador : InimigoPai
 {
-    public GameObject prefabInimigo3; // Prefab do Inimigo3
+    public GameObject prefabInimigo3; // Prefab do Inimigo bala rapida
 
     void Start()
     {
-        vida = 4; // Configura a vida do Inimigo2
+        vida = 4; // Configura a vida
         velocidade = 4f;
-        Start(); // Chama o método Start da classe base
-        MoverInimigo();
     }
     public override void ReceberDano(int dano)
     {
