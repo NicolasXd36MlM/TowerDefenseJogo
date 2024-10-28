@@ -10,8 +10,6 @@ public class InimigoReplicador : InimigoPai
     {
         vida = 5; // Configura a vida do Inimigo4
         velocidade = 5f;
-        Start(); // Chama o método Start da classe base
-        MoverInimigo();
     }
     public override void ReceberDano(int dano)
     {

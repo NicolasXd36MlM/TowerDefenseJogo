@@ -10,7 +10,7 @@ public class InimigoPai : MonoBehaviour
     private Transform objetivo;             // Ponto de destino
     private int caminhoIndex = 0;          // Índice do caminho atual
     [SerializeField]
-    public int vida;
+    protected int vida;
 
     void Start()
     {

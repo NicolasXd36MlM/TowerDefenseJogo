@@ -5,13 +5,11 @@ using UnityEngine;
 public class BalaRapida : InimigoPai
 {
     public float aumentoDeVelocidade = 2f; // Quanto a velocidade aumenta ao ser atacado
-    public int vida = 2; // Vida inicial do Inimigo3 (menor que os outros)
-
+   
     private void Start()
-    {
-        // Inicializa a velocidade
+    { 
         velocidade = 7f; // Defina a velocidade base do inimigo
-        MoverInimigo();
+        vida = 2;
     }
 
     // Método chamado quando o inimigo sofre dano
