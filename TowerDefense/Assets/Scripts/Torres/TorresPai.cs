@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Torre : MonoBehaviour
+public class TorrePai : MonoBehaviour
 {
     public float alcance = 5f;
     public float velocidadeRotacao = 5f;

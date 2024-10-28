@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static BuildManager main;
+    [SerializeField]
+    private GameObject[] PrefabTorre;
+
+    private int torreSelecionada = 0;
+
+    private void Awake()
     {
-        
+        main = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public GameObject pegaTorreSelecionada()
     {
-        
+        return PrefabTorre[torreSelecionada];
     }
 }
