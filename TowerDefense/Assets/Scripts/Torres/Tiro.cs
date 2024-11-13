@@ -5,7 +5,8 @@ using UnityEngine;
 public class Tiro : MonoBehaviour
 {
     public float velocidade = 10f; // Velocidade da bala
-
+    public GameObject balinha; // Prefab da bala
+    public Transform pontoDeDisparo; // Ponto de disparo
     void Start()
     {
         // A bala já deve estar rotacionada corretamente ao ser instanciada
@@ -13,7 +14,12 @@ public class Tiro : MonoBehaviour
 
     void Update()
     {
-        // Aqui você pode adicionar lógica para a movimentação da bala, se necessário
+        GameObject bullet = Instantiate(balinha, pontoDeDisparo.position, pontoDeDisparo.rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.velocity = pontoDeDisparo.up * bullet.GetComponent<bala>().velocidadeDaBala; // Aplica a velocidade na direção do firePoint
+
+        // Rotaciona a bala para a direção do disparo
+        bullet.transform.rotation = pontoDeDisparo.rotation;
     }
 
     void OnCollisionEnter2D(Collision2D colisao)
