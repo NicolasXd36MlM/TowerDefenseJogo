@@ -15,6 +15,7 @@ public class TorrePai : MonoBehaviour
         {
             RotacionarEmDirecaoAoAlvo();
         }
+        Atirar();
     }
     void EncontrarAlvo()
     {
@@ -36,8 +37,6 @@ public class TorrePai : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, rotacao, velocidadeRotacao * Time.deltaTime);
     }
 
-    public class Arma : MonoBehaviour
-    {
         public GameObject prefabBala; // Prefab da bala
         public Transform pontoDisparo; // Ponto de disparo
 
@@ -50,6 +49,6 @@ public class TorrePai : MonoBehaviour
             // A rotação já deve estar correta ao instanciar a bala
             bala.transform.rotation = pontoDisparo.rotation;
         }
-    }
+    
 }
 

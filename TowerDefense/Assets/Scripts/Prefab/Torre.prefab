@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8544357654912019607}
   - component: {fileID: 4314749024579027591}
+  - component: {fileID: 3887846062888263199}
   m_Layer: 0
   m_Name: Torre
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 5864116400585718066}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.31, y: -8.82, z: 0}
+  m_LocalPosition: {x: -3.31, y: -8.82, z: -1}
   m_LocalScale: {x: 0.6387262, y: 0.6387262, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -84,3 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3887846062888263199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5864116400585718066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ca1a5d076dbe974c97c1a364cecadde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alcance: 5
+  velocidadeRotacao: 5
+  prefabBala: {fileID: 1276213231677012054, guid: 8e1cbe143727a084a8e914c4e6cb7196, type: 3}
+  pontoDisparo: {fileID: 8544357654912019607}
