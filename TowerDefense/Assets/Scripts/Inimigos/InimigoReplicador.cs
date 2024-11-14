@@ -29,9 +29,4 @@ public class InimigoReplicador : InimigoPai
             Debug.Log("Inimigo3 criado a partir do Inimigo4!");
         }
     }
-    void Update()
-    {
-        MoverInimigo(); // Move o inimigo no Update
-        VerificarFimDoCaminho();
-    }
 }

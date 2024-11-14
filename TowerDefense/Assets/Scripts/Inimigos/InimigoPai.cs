@@ -10,7 +10,7 @@ public class InimigoPai : MonoBehaviour
     public GameObject prefabInimigo;       // Prefab do inimigo
     public float velocidade = 5f;          // Velocidade do inimigo
     private Transform objetivo;             // Ponto de destino
-    private int caminhoIndex = 0;          // Índice do caminho atual
+    private int caminhoIndex = 20;          // Índice do caminho atual
     [SerializeField]
     protected int vida;
     [SerializeField]
