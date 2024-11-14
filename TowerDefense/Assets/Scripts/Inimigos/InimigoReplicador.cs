@@ -32,5 +32,6 @@ public class InimigoReplicador : InimigoPai
     void Update()
     {
         MoverInimigo(); // Move o inimigo no Update
+        VerificarFimDoCaminho();
     }
 }

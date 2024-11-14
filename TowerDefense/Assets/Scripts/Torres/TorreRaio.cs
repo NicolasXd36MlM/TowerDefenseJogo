@@ -9,7 +9,7 @@ public class TorreRaio : TorrePai
     public int numeroDeDisparos = 3; // Número de raios disparados (definido como int)
     public float intervaloEntreDisparos = 0.2f; // Intervalo entre os disparos
 
-    void Atirar()
+   public override void Atirar()
     {
         if (tempoRestanteParaAtirar <= 0f && alvoAtual != null)
         {

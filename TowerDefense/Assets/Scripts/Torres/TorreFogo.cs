@@ -8,11 +8,11 @@ public class TorreFogo : TorrePai
     public float duracaoDoDano = 5f; // Duração do dano contínuo
 
 
-    public void Atirar()
+    public override void Atirar()
     {
         if (tempoRestanteParaAtirar <= 0f && alvoAtual != null)
         {
-            GameObject bala = Instantiate(balaPrefab, pontoDisparo.position, Quaternion.identity);
+            GameObject bala = Instantiate(balaPrefab, transform.position, Quaternion.identity);
             Rigidbody2D rb = bala.GetComponent<Rigidbody2D>();
             Vector2 direcao = (alvoAtual.position - transform.position).normalized;
             rb.velocity = direcao * 10f;

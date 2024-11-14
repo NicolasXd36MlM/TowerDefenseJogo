@@ -45,12 +45,12 @@ public class TorrePai : MonoBehaviour
         float angulo = Mathf.Atan2(direcao.y, direcao.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angulo - 90);
     }
-        void Atirar()
+      public virtual void  Atirar()
 
     {
         if (tempoRestanteParaAtirar <= 0f && alvoAtual != null)
         {
-            GameObject bala = Instantiate(balaPrefab, alvoAtual.position, Quaternion.identity); // Usando a posição do inimigo
+            GameObject bala = Instantiate(balaPrefab, transform.position, Quaternion.identity); // Usando a posição do inimigo
             Rigidbody2D rb = bala.GetComponent<Rigidbody2D>();
             Vector2 direcao = (alvoAtual.position - transform.position).normalized;
             rb.velocity = direcao * 10f; // Define a velocidade da bala

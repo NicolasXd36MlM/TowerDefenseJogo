@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class InimigoPai : MonoBehaviour
@@ -12,10 +13,13 @@ public class InimigoPai : MonoBehaviour
     private int caminhoIndex = 0;          // Índice do caminho atual
     [SerializeField]
     protected int vida;
+    [SerializeField]
+    LayerMask inimigo;
 
     void Start()
     {
         AtualizarObjetivo();  // Define o primeiro objetivo do inimigo
+        LayerMask.NameToLayer(inimigo.ToString());
     }
     void Update()
     {
@@ -50,7 +54,7 @@ public class InimigoPai : MonoBehaviour
             }
         }
     }
-    void VerificarFimDoCaminho()
+    public virtual void VerificarFimDoCaminho()
     {
         // Se o índice ultrapassar o tamanho do caminho, destrói o inimigo
         if (caminhoIndex >= LevelManager.main.caminho.Length)
@@ -59,7 +63,7 @@ public class InimigoPai : MonoBehaviour
         }
     }
 
-    public void AtualizarObjetivo()
+    public virtual void AtualizarObjetivo()
     {
         // Verifica se a instância do LevelManager está inicializada
         if (LevelManager.main == null)

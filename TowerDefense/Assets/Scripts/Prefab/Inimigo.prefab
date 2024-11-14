@@ -164,3 +164,7 @@ MonoBehaviour:
   separacao: 1
   prefabInimigo: {fileID: 2557497443967019115}
   velocidade: 2
+  vida: 0
+  inimigo:
+    serializedVersion: 2
+    m_Bits: 8

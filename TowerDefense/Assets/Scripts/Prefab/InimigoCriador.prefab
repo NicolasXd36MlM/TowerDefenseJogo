@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6854601228592200762}
   - component: {fileID: 7873835626062249862}
   - component: {fileID: 4022341483322674353}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: InimigoCriador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,4 +165,7 @@ MonoBehaviour:
   prefabInimigo: {fileID: 4405551281496754024}
   velocidade: 5
   vida: 4
+  inimigo:
+    serializedVersion: 2
+    m_Bits: 8
   prefabInimigo3: {fileID: 1351101069962863970, guid: 3be0107ecb055104da1b32eb05279ea2, type: 3}

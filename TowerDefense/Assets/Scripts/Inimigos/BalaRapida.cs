@@ -27,5 +27,6 @@ public class BalaRapida : InimigoPai
     void Update()
     {
         MoverInimigo(); // Move o inimigo no Update
+        VerificarFimDoCaminho();
     }
 }
