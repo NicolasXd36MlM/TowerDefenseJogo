@@ -16,14 +16,14 @@ public class InimigoPai : MonoBehaviour
     void Start()
     {
         AtualizarObjetivo();  // Define o primeiro objetivo do inimigo
-        VerificarFimDoCaminho();
     }
     void Update()
     {
         MoverInimigo();
-        InstanciarInimigos(5);
+        InstanciarInimigos(10);
+        VerificarFimDoCaminho();
     }
-    protected void MoverInimigo()
+    public void MoverInimigo()
     {
         if (objetivo == null) return; // Se não há objetivo, não faz nada
 
@@ -50,12 +50,6 @@ public class InimigoPai : MonoBehaviour
             }
         }
     }
-
-    internal void ReceberDano(float v)
-    {
-        throw new NotImplementedException();
-    }
-
     void VerificarFimDoCaminho()
     {
         // Se o índice ultrapassar o tamanho do caminho, destrói o inimigo
@@ -112,5 +106,10 @@ public class InimigoPai : MonoBehaviour
         {
             Destroy(gameObject); // Destrói o inimigo se a vida chegar a 0
         }
+    }
+
+    internal void ReceberDano(float v)
+    {
+        throw new NotImplementedException();
     }
 }
