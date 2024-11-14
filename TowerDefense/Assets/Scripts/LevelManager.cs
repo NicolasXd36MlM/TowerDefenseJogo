@@ -5,32 +5,33 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+   
+    public Transform pontoDeSpawn; // Ponto onde os inimigos serão instanciados
+    public int quantidadeDeInimigosParaSpawn = 5; // Quantidade de inimigos a serem instanciados
     public static LevelManager main; // Instância estática para acesso global
     public Transform[] caminho; // Onde o inimigo vai passar
     public Transform começo; // Onde aparece o inimigo
     public GameObject prefabInimigo; // Prefab do inimigo
     public int quantidadeInimigos = 5; // Quantidade de inimigos a serem instanciados
+    [SerializeField]
+    private List<GameObject> ListaDeInimigosPrefab; // Lista de prefabs dos inimigos
 
-    private void Awake()
+
+    void Start()
     {
-        main = this; // Define a instância do LevelManager
+        InstanciarInimigosAleatorios();
     }
-    private void Start()
+
+    void InstanciarInimigosAleatorios()
     {
-        InstanciarInimigos(quantidadeInimigos); // Chama o método para instanciar inimigos
-    }
-    // Método para instanciar inimigos
-    public void InstanciarInimigos(int quantidade)
-    {
-        for (int i = 0; i < quantidade; i++)
+        for (int i = 0; i < quantidadeDeInimigosParaSpawn; i++)
         {
-            // Calcula a posição de spawn com base na distância
-            Vector3 posicaoSpawn = começo.position + new Vector3(i * 1f, 0, 0);
-            GameObject novoInimigo = Instantiate(prefabInimigo, posicaoSpawn, Quaternion.identity);
+            // Escolhe um inimigo aleatório da lista
+            int indiceAleatorio = Random.Range(0, ListaDeInimigosPrefab.Count);
+            GameObject inimigoPrefab = ListaDeInimigosPrefab[indiceAleatorio];
 
-            // Configura o objetivo inicial para o inimigo instanciado
-            InimigoPai inimigoScript = novoInimigo.GetComponent<InimigoPai>();
-            inimigoScript.AtualizarObjetivo(); // Define o primeiro objetivo
+            // Instancia o inimigo no ponto de spawn
+            Instantiate(inimigoPrefab, pontoDeSpawn.position, Quaternion.identity);
         }
     }
 }

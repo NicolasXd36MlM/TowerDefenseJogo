@@ -45,17 +45,10 @@ public class TorrePai : MonoBehaviour
         float angulo = Mathf.Atan2(direcao.y, direcao.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angulo - 90);
     }
-
-<<<<<<< Updated upstream
-        public GameObject prefabBala; // Prefab da bala
-        public Transform pontoDisparo; // Ponto de disparo
-
         void Atirar()
-=======
-    void Atirar()
+
     {
         if (tempoRestanteParaAtirar <= 0f && alvoAtual != null)
->>>>>>> Stashed changes
         {
             GameObject bala = Instantiate(balaPrefab, alvoAtual.position, Quaternion.identity); // Usando a posição do inimigo
             Rigidbody2D rb = bala.GetComponent<Rigidbody2D>();
@@ -63,9 +56,6 @@ public class TorrePai : MonoBehaviour
             rb.velocity = direcao * 10f; // Define a velocidade da bala
             tempoRestanteParaAtirar = tempoEntreTiros;
         }
-<<<<<<< Updated upstream
-    
-=======
         else
         {
             tempoRestanteParaAtirar -= Time.deltaTime;
@@ -78,5 +68,4 @@ public class TorrePai : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, alcance);
     }
->>>>>>> Stashed changes
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class InimigoPai : MonoBehaviour
 {
-    public float separacao = 1f;          // Distância entre inimigos
+    public float separacao = 2f;          // Distância entre inimigos
     public GameObject prefabInimigo;       // Prefab do inimigo
     public float velocidade = 5f;          // Velocidade do inimigo
     private Transform objetivo;             // Ponto de destino
@@ -16,10 +16,12 @@ public class InimigoPai : MonoBehaviour
     void Start()
     {
         AtualizarObjetivo();  // Define o primeiro objetivo do inimigo
+        VerificarFimDoCaminho();
     }
     void Update()
     {
         MoverInimigo();
+        InstanciarInimigos(5);
     }
     protected void MoverInimigo()
     {
@@ -63,8 +65,22 @@ public class InimigoPai : MonoBehaviour
         }
     }
 
-   public void AtualizarObjetivo()
+    public void AtualizarObjetivo()
     {
+        // Verifica se a instância do LevelManager está inicializada
+        if (LevelManager.main == null)
+        {
+            Debug.LogError("LevelManager.main é null!");
+            return; // Saia do método se for null
+        }
+
+        // Verifica se o caminho é null
+        if (LevelManager.main.caminho == null)
+        {
+            Debug.LogError("caminho é null!");
+            return; // Saia do método se for null
+        }
+
         // Atualiza o objetivo com base no índice do caminho
         if (caminhoIndex < LevelManager.main.caminho.Length)
         {
@@ -79,7 +95,7 @@ public class InimigoPai : MonoBehaviour
     {
         for (int i = 0; i < quantidade; i++)
         {
-            Vector3 posicaoSpawn = LevelManager.main.começo.position + new Vector3(i * separacao, 0, 0);
+            Vector3 posicaoSpawn = LevelManager.main.pontoDeSpawn.position + new Vector3(i * separacao, 0, 0);
             GameObject novoInimigo = Instantiate(prefabInimigo, posicaoSpawn, Quaternion.identity);
 
             // Configura o objetivo inicial para o inimigo instanciado

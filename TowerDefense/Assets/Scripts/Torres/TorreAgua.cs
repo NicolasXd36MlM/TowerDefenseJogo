@@ -2,11 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-<<<<<<< Updated upstream
-public class TorreAgua : TorresPai
-=======
 public class TorreAgua : TorrePai
->>>>>>> Stashed changes
 {
     public void Atirar()
     {
