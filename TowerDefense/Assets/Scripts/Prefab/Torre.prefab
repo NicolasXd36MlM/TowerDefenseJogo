@@ -10,7 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8544357654912019607}
   - component: {fileID: 4314749024579027591}
+<<<<<<< Updated upstream
+  - component: {fileID: 3887846062888263199}
   m_Layer: 0
+=======
+  - component: {fileID: 3957584795901497381}
+  m_Layer: 3
+>>>>>>> Stashed changes
   m_Name: Torre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 5864116400585718066}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.31, y: -8.82, z: 0}
+  m_LocalPosition: {x: -3.31, y: -8.82, z: -1}
   m_LocalScale: {x: 0.6387262, y: 0.6387262, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2135585597343286014, guid: 5aa8b770bc43046bc8d993d0d5b7f4a5, type: 3}
-  m_Color: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
+  m_Color: {r: 1, g: 0.73837113, b: 0, a: 1}
   m_FlipX: 1
   m_FlipY: 1
   m_DrawMode: 0
@@ -84,3 +90,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< Updated upstream
+--- !u!114 &3887846062888263199
+=======
+--- !u!114 &3957584795901497381
+>>>>>>> Stashed changes
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5864116400585718066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ca1a5d076dbe974c97c1a364cecadde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
+  alcance: 5
+  velocidadeRotacao: 5
+  prefabBala: {fileID: 1276213231677012054, guid: 8e1cbe143727a084a8e914c4e6cb7196, type: 3}
+  pontoDisparo: {fileID: 8544357654912019607}
+=======
+  balaPrefab: {fileID: 2150820154286977115, guid: 9360ae2f354598148b0a12d9b25389e2, type: 3}
+  pontoDisparo: {fileID: 0}
+  alcance: 2
+  tempoEntreTiros: 1
+  camadaInimigos:
+    serializedVersion: 2
+    m_Bits: 0
+>>>>>>> Stashed changes

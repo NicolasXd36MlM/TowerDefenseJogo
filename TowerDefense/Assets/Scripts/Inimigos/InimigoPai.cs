@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,6 +48,12 @@ public class InimigoPai : MonoBehaviour
             }
         }
     }
+
+    internal void ReceberDano(float v)
+    {
+        throw new NotImplementedException();
+    }
+
     void VerificarFimDoCaminho()
     {
         // Se o índice ultrapassar o tamanho do caminho, destrói o inimigo
