@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1299426141543054596}
   - component: {fileID: 1203326319453620400}
   - component: {fileID: 7550078724765950611}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: InimigoBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}

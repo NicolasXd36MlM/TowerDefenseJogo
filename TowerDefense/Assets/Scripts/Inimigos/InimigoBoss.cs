@@ -11,8 +11,5 @@ public class InimigoBoss : InimigoPai
         Start(); // Chama o método Start da classe base
         MoverInimigo();
     }
-    void Update()
-    {
-        MoverInimigo(); // Move o inimigo no Update
-    }
+  
 }

@@ -15,4 +15,16 @@ public class TorresPai : MonoBehaviour
     {
         
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Inimigo"))
+        {
+            InimigoPai inimigo = other.GetComponent<InimigoPai>();
+            if (inimigo != null)
+            {
+                inimigo.ReceberDano(1); // Aplica 1 de dano
+            }
+            Destroy(gameObject); // Destroi o tiro
+        }
+    }
 }

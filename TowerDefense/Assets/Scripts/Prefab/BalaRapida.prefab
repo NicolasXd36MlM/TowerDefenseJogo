@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5863689224952796168}
   - component: {fileID: 1530308284716751315}
   - component: {fileID: 2596976460915888162}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BalaRapida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,4 +166,3 @@ MonoBehaviour:
   velocidade: 5
   vida: 2
   aumentoDeVelocidade: 2
-  vida: 2

@@ -26,8 +26,5 @@ public class BalaRapida : InimigoPai
             Destroy(gameObject); // Destrói o inimigo
         }
     }
-    void Update()
-    {
-        MoverInimigo(); // Move o inimigo no Update
-    }
+
 }
