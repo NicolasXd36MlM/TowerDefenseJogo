@@ -68,4 +68,16 @@ public class TorrePai : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, alcance);
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Inimigo"))
+        {
+            InimigoPai inimigo = other.GetComponent<InimigoPai>();
+            if (inimigo != null)
+            {
+                inimigo.ReceberDano(1); // Aplica 1 de dano
+            }
+            Destroy(gameObject); // Destroi o tiro
+        }
+    }
 }
