@@ -29,8 +29,5 @@ public class InimigoCriador : InimigoPai
         Instantiate(prefabInimigo3, transform.position, Quaternion.identity);
         Debug.Log("Inimigo3 criado a partir do Inimigo2!");
     }
-    void Update()
-    {
-        MoverInimigo(); // Move o inimigo no Update
-    }
+  
 }

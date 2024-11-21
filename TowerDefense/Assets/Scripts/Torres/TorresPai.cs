@@ -4,52 +4,80 @@ using UnityEngine;
 
 public class TorrePai : MonoBehaviour
 {
-    public float alcance = 5f;
-    public float velocidadeRotacao = 5f;
-    private Transform alvo;
+    public GameObject balaPrefab; // Prefab da bala
+    public Transform pontoDisparo; // Local de disparo
+    public float alcance = 5f; // Alcance da torreta
+    public float tempoEntreTiros = 1f; // Intervalo entre disparos
+    public LayerMask camadaInimigos; // Máscara para detectar inimigos
+
+    public Transform alvoAtual;
+    public float tempoRestanteParaAtirar;
 
     void Update()
     {
-        EncontrarAlvo();
-        if (alvo != null)
+        ProcurarAlvo();
+        if (alvoAtual != null)
         {
-            RotacionarEmDirecaoAoAlvo();
+            RotacionarParaAlvo();
+            Atirar();
+            
         }
+        Atirar();
     }
-    void EncontrarAlvo()
+
+    void ProcurarAlvo()
     {
-        Collider2D[] inimigos = Physics2D.OverlapCircleAll(transform.position, alcance);
-        if (inimigos.Length > 0)
+        Collider2D[] inimigosNaArea = Physics2D.OverlapCircleAll(transform.position, alcance, camadaInimigos);
+
+        if (inimigosNaArea.Length > 0)
         {
-            alvo = inimigos[0].transform; // Alvo será o primeiro inimigo detectado
+            alvoAtual = inimigosNaArea[0].transform; // Seleciona o primeiro inimigo detectado
         }
         else
         {
-            alvo = null; // Nenhum alvo encontrado
+            alvoAtual = null;
         }
     }
-     void RotacionarEmDirecaoAoAlvo()
+
+    void RotacionarParaAlvo()
     {
-        Vector3 direction = alvo.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Quaternion rotacao = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotacao, velocidadeRotacao * Time.deltaTime);
+        Vector2 direcao = (alvoAtual.position - transform.position).normalized;
+        float angulo = Mathf.Atan2(direcao.y, direcao.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angulo - 90);
+    }
+      public virtual void  Atirar()
+
+    {
+        if (tempoRestanteParaAtirar <= 0f && alvoAtual != null)
+        {
+            GameObject bala = Instantiate(balaPrefab, transform.position, Quaternion.identity); // Usando a posição do inimigo
+            Rigidbody2D rb = bala.GetComponent<Rigidbody2D>();
+            Vector2 direcao = (alvoAtual.position - transform.position).normalized;
+            rb.velocity = direcao * 10f; // Define a velocidade da bala
+            tempoRestanteParaAtirar = tempoEntreTiros;
+        }
+        else
+        {
+            tempoRestanteParaAtirar -= Time.deltaTime;
+        }
     }
 
-    public class Arma : MonoBehaviour
+    void OnDrawGizmosSelected()
     {
-        public GameObject prefabBala; // Prefab da bala
-        public Transform pontoDisparo; // Ponto de disparo
-
-        void Atirar()
+        // Desenha a área de alcance no editor
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, alcance);
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Inimigo"))
         {
-            GameObject bala = Instantiate(prefabBala, pontoDisparo.position, pontoDisparo.rotation);
-            Rigidbody2D rb = bala.GetComponent<Rigidbody2D>();
-            rb.velocity = pontoDisparo.up * rb.GetComponent<Tiro>().velocidade; // Aplica a velocidade na direção do ponto de disparo
-
-            // A rotação já deve estar correta ao instanciar a bala
-            bala.transform.rotation = pontoDisparo.rotation;
+            InimigoPai inimigo = other.GetComponent<InimigoPai>();
+            if (inimigo != null)
+            {
+                inimigo.ReceberDano(1); // Aplica 1 de dano
+            }
+            Destroy(gameObject); // Destroi o tiro
         }
     }
 }
-

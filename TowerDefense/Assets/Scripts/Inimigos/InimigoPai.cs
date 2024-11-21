@@ -1,26 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class InimigoPai : MonoBehaviour
 {
-    public float separacao = 1f;          // Distância entre inimigos
+    public float separacao = 2f;          // Distância entre inimigos
     public GameObject prefabInimigo;       // Prefab do inimigo
     public float velocidade = 5f;          // Velocidade do inimigo
     private Transform objetivo;             // Ponto de destino
-    private int caminhoIndex = 0;          // Índice do caminho atual
+    private int caminhoIndex = 20;          // Índice do caminho atual
     [SerializeField]
     protected int vida;
+    [SerializeField]
+    LayerMask inimigo;
 
     void Start()
     {
         AtualizarObjetivo();  // Define o primeiro objetivo do inimigo
+        LayerMask.NameToLayer(inimigo.ToString());
     }
     void Update()
     {
         MoverInimigo();
+        InstanciarInimigos(10);
+        VerificarFimDoCaminho();
     }
-    protected void MoverInimigo()
+    public void MoverInimigo()
     {
         if (objetivo == null) return; // Se não há objetivo, não faz nada
 
@@ -47,7 +54,7 @@ public class InimigoPai : MonoBehaviour
             }
         }
     }
-    void VerificarFimDoCaminho()
+    public virtual void VerificarFimDoCaminho()
     {
         // Se o índice ultrapassar o tamanho do caminho, destrói o inimigo
         if (caminhoIndex >= LevelManager.main.caminho.Length)
@@ -56,8 +63,22 @@ public class InimigoPai : MonoBehaviour
         }
     }
 
-   public void AtualizarObjetivo()
+    public virtual void AtualizarObjetivo()
     {
+        // Verifica se a instância do LevelManager está inicializada
+        if (LevelManager.main == null)
+        {
+            Debug.LogError("LevelManager.main é null!");
+            return; // Saia do método se for null
+        }
+
+        // Verifica se o caminho é null
+        if (LevelManager.main.caminho == null)
+        {
+            Debug.LogError("caminho é null!");
+            return; // Saia do método se for null
+        }
+
         // Atualiza o objetivo com base no índice do caminho
         if (caminhoIndex < LevelManager.main.caminho.Length)
         {
@@ -72,7 +93,7 @@ public class InimigoPai : MonoBehaviour
     {
         for (int i = 0; i < quantidade; i++)
         {
-            Vector3 posicaoSpawn = LevelManager.main.começo.position + new Vector3(i * separacao, 0, 0);
+            Vector3 posicaoSpawn = LevelManager.main.pontoDeSpawn.position + new Vector3(i * separacao, 0, 0);
             GameObject novoInimigo = Instantiate(prefabInimigo, posicaoSpawn, Quaternion.identity);
 
             // Configura o objetivo inicial para o inimigo instanciado
@@ -89,5 +110,10 @@ public class InimigoPai : MonoBehaviour
         {
             Destroy(gameObject); // Destrói o inimigo se a vida chegar a 0
         }
+    }
+
+    internal void ReceberDano(float v)
+    {
+        throw new NotImplementedException();
     }
 }

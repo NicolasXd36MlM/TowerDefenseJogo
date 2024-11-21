@@ -4,30 +4,31 @@ using UnityEngine;
 
 public class Terra : MonoBehaviour
 {
-    [SerializeField]
-    private SpriteRenderer terra;
-    [SerializeField]
-    private Color CorCampo;
+    public GameObject torrePrefab; // Prefab da torre
+    public controladorDeTorre controladorDeTorre; // Gerencia o estado dos quadrados
 
-    private GameObject torre;
-    private Color CorPrimaria;
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
-    private void Start()
-    {
-        CorPrimaria = terra.color;
-    }
-    private void OnMouseEnter()
-    {
-        terra.color = CorCampo;
-    }
-
-    private void OnMouseExit()
-    {
-        terra.color = CorPrimaria;
+            if (hit.collider != null && hit.collider.CompareTag("Quadrado"))
+            {
+                Instantiate(torrePrefab, hit.collider.transform.position, Quaternion.identity);
+            }
+        }
+        
     }
 
-    private void OnMouseDown()
+    public GameObject DetectarQuadrado(Vector2 posicao)
     {
-        Debug.Log("construa uma torre aqui: " + name);
+        RaycastHit2D hit = Physics2D.Raycast(posicao, Vector2.zero);
+        if (hit.collider != null && hit.collider.CompareTag("Quadrado"))
+        {
+            return hit.collider.gameObject;
+        }
+        return null;
     }
 }

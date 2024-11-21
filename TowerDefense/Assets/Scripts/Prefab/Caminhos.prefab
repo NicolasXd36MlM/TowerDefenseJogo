@@ -44,8 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 067676bffb65db547a01027b90db67ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Caminhos: []
+  pontoDeSpawn: {fileID: 0}
+  quantidadeDeInimigosParaSpawn: 5
+  caminho: []
   "come\xE7o": {fileID: 4049912494716816644}
+  prefabInimigo: {fileID: 0}
+  quantidadeInimigos: 5
+  ListaDeInimigosPrefab: []
 --- !u!1 &680652861573925704
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,27 +549,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 067676bffb65db547a01027b90db67ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Caminhos:
-  - {fileID: 4869829137744265589}
-  - {fileID: 8388336103137668975}
-  - {fileID: 604672652132928870}
-  - {fileID: 4743685139136298017}
-  - {fileID: 2614806187815038275}
-  - {fileID: 7971812255226967776}
-  - {fileID: 2278755870835551937}
-  - {fileID: 3570134368633160092}
-  - {fileID: 5337387544465574542}
-  - {fileID: 7762118520439820584}
-  - {fileID: 8236319010672215408}
-  - {fileID: 8506435165106120578}
-  - {fileID: 2777389926476009608}
-  - {fileID: 2554714621535937055}
-  - {fileID: 2352084468121330637}
-  - {fileID: 6662396570735283625}
-  - {fileID: 6082727767027050444}
-  - {fileID: 2685967362719832438}
-  - {fileID: 6407432589968857468}
+  pontoDeSpawn: {fileID: 539178551171875669, guid: 8b690a80ffc81d14b8a4bbde56b2e7bb, type: 3}
+  quantidadeDeInimigosParaSpawn: 5
+  caminho: []
   "come\xE7o": {fileID: 4049912494716816644}
+  prefabInimigo: {fileID: 2557497443967019115, guid: 466af6ebdd6104a45af5d1ff54644ac9, type: 3}
+  quantidadeInimigos: 5
+  ListaDeInimigosPrefab:
+  - {fileID: 1351101069962863970, guid: 3be0107ecb055104da1b32eb05279ea2, type: 3}
+  - {fileID: 1351101069962863970, guid: 3be0107ecb055104da1b32eb05279ea2, type: 3}
+  - {fileID: 1351101069962863970, guid: 3be0107ecb055104da1b32eb05279ea2, type: 3}
+  - {fileID: 1351101069962863970, guid: 3be0107ecb055104da1b32eb05279ea2, type: 3}
+  - {fileID: 1351101069962863970, guid: 3be0107ecb055104da1b32eb05279ea2, type: 3}
+  - {fileID: 1351101069962863970, guid: 3be0107ecb055104da1b32eb05279ea2, type: 3}
+  - {fileID: 1351101069962863970, guid: 3be0107ecb055104da1b32eb05279ea2, type: 3}
+  - {fileID: 1351101069962863970, guid: 3be0107ecb055104da1b32eb05279ea2, type: 3}
+  - {fileID: 1351101069962863970, guid: 3be0107ecb055104da1b32eb05279ea2, type: 3}
+  - {fileID: 4405551281496754024, guid: a49fc8d0ad75ddc4eb1f9e6f7a8acf7d, type: 3}
+  - {fileID: 4405551281496754024, guid: a49fc8d0ad75ddc4eb1f9e6f7a8acf7d, type: 3}
+  - {fileID: 4405551281496754024, guid: a49fc8d0ad75ddc4eb1f9e6f7a8acf7d, type: 3}
+  - {fileID: 8399171201417468343, guid: 933f3e22353e17f4d9aea39d774a822c, type: 3}
+  - {fileID: 8399171201417468343, guid: 933f3e22353e17f4d9aea39d774a822c, type: 3}
+  - {fileID: 5762959291508069263, guid: a8f358b403c655e449052615044dda67, type: 3}
 --- !u!1 &7076502003163736026
 GameObject:
   m_ObjectHideFlags: 0
