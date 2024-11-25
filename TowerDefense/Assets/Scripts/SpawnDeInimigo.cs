@@ -50,13 +50,11 @@ public class SpawnDeInimigo : MonoBehaviour
             IniciarProximaOnda();
         }
     }
-
     private void OndaInicial()
     {
         inimigosEsperando = EniPorOnda(); // Define quantos inimigos serão spawnados nesta onda
         inimigosVivos = inimigosEsperando; // Inicializa os inimigos vivos
     }
-
     private void SpawnInimigo()
     {
 
@@ -82,7 +80,6 @@ public class SpawnDeInimigo : MonoBehaviour
         // Calcula o número de inimigos para a onda atual
         return Mathf.RoundToInt(QuantiInimigo * Mathf.Pow(ondaAtual, dificuldade));
     }
-
     private void IniciarProximaOnda()
     {
         ondaAtual++; // Incrementa o número da onda
