@@ -3365,7 +3365,6 @@ GameObject:
   - component: {fileID: 1038497642}
   - component: {fileID: 1038497641}
   - component: {fileID: 1038497640}
-  - component: {fileID: 1038497643}
   - component: {fileID: 1038497644}
   m_Layer: 3
   m_Name: LevelManeger
@@ -3445,25 +3444,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabTorre:
   - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
-  - {fileID: 3214847368572679947, guid: 1cb7022b6952ee0498a50f0266fce82b, type: 3}
 --- !u!4 &1038497642
 Transform:
   m_ObjectHideFlags: 0
@@ -3479,20 +3459,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1038497643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038497639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e585c236db687ec43a1342a67a90d6c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PrefabTorre:
-  - {fileID: 5864116400585718066, guid: 504a9b80851280c468176cb7b66f87b5, type: 3}
 --- !u!114 &1038497644
 MonoBehaviour:
   m_ObjectHideFlags: 0

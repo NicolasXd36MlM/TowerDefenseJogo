@@ -24,7 +24,6 @@ public class InimigoPai : MonoBehaviour
     void Update()
     {
         MoverInimigo();
-        InstanciarInimigos(10);
         VerificarFimDoCaminho();
     }
     public void MoverInimigo()
@@ -89,6 +88,7 @@ public class InimigoPai : MonoBehaviour
             objetivo = null; // Define objetivo como nulo se ultrapassar o limite
         }
     }
+    
     void InstanciarInimigos(int quantidade)
     {
         for (int i = 0; i < quantidade; i++)

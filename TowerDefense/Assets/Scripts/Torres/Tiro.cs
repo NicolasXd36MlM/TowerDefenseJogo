@@ -28,22 +28,7 @@ public class Tiro : MonoBehaviour
             Destroy(gameObject); // Destrói a bala após o impacto
         }
     }
-    /*
-    private IEnumerator DanoContínuo(InimigoPai inimigo)
-    {
-        float tempoDecorrido = 1f;
-        int danoPorSegundo = 5; // Dano por segundo
-        int duracaoDoDano = 5; // Duração do dano contínuo
-
-        while (tempoDecorrido < duracaoDoDano && inimigo != null)
-        {
-           inimigo.ReceberDano(danoPorSegundo * Time.deltaTime);
-            tempoDecorrido += Time.deltaTime;
-            yield return null; // Espera até o próximo frame
-           
-        }
-    }
-     */
+     
     private IEnumerator Desacelerar(InimigoPai inimigo)
     {
         float velocidadeOriginal = inimigo.velocidade;

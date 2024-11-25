@@ -41,4 +41,6 @@ public class LevelManager : MonoBehaviour
             Instantiate(inimigoPrefab, pontoDeSpawn.position, Quaternion.identity);
         }
     }
+    
+
 }
