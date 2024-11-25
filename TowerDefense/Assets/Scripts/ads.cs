@@ -4,7 +4,7 @@ using UnityEditor.Advertisements;
 using UnityEngine;
 public class ads : MonoBehaviour
 {
-
+    /*
     public string adUnitId = "Interstitial_Android"; // Troque para Interstitial_iOS se for iOS.
     private bool canSkip = true;
     public void ShowAd()
@@ -25,4 +25,5 @@ public class ads : MonoBehaviour
     {
         return !canSkip;
     }
+    */
 }
