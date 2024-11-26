@@ -6,11 +6,13 @@ using UnityEngine.Advertisements;
 public class RecompensaAd : MonoBehaviour
 {
     private string adUnitId = "Rewarded_Android"; // Troque para Rewarded_iOS se for iOS.
+    private bool IsReady = true;
+    private int resultadoResposta;
     public void ShowRewardedAd()
     {
         if (Advertisement.IsReady(adUnitId))
         {
-            var options = new ShowOptions { resultCallback = HandleAdResult };
+            var options = new ShowOptions { resultadoResposta = HandleAdResult };
             Advertisement.Show(adUnitId, options);
         }
     }

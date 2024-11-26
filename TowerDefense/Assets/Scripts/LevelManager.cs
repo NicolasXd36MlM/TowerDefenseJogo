@@ -14,6 +14,8 @@ public class LevelManager : MonoBehaviour
     public Transform começo; // Onde aparece o inimigo
     public GameObject prefabInimigo; // Prefab do inimigo
     public int quantidadeInimigos = 5; // Quantidade de inimigos a serem instanciados
+    public int ContadorDeColisao;
+    public int MaximoDeColisao = 10;
 
     [SerializeField]
     private List<GameObject> ListaDeInimigosPrefab; // Lista de prefabs dos inimigos
@@ -41,6 +43,24 @@ public class LevelManager : MonoBehaviour
             Instantiate(inimigoPrefab, pontoDeSpawn.position, Quaternion.identity);
         }
     }
-    
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Final"))
+        {
+            ContadorDeColisao++;
+
+            if (ContadorDeColisao >= MaximoDeColisao)
+            {
+                GameOver();
+            }
+        }
+    }
+
+    void GameOver()
+    {
+        Debug.Log("Game Over!");
+        // Aqui você pode adicionar lógica adicional, como reiniciar o jogo ou voltar ao menu
+        Time.timeScale = 0; // Pausa o jogo
+    }
 
 }
