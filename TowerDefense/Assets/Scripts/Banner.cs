@@ -5,7 +5,6 @@ using UnityEngine.Advertisements;
 
 public class Banner : MonoBehaviour
 {
-   {
    private string adUnitId = "Banner_Android"; // Troque para Banner_iOS se for iOS.
     void Start()
     {
