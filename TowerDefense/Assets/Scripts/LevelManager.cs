@@ -4,10 +4,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
-
 public class LevelManager : MonoBehaviour
 {
-   
     public Transform pontoDeSpawn; // Ponto onde os inimigos serão instanciados
     public int quantidadeDeInimigosParaSpawn = 18; // Quantidade de inimigos a serem instanciados
     public static LevelManager main; // Instância estática para acesso global
@@ -22,12 +20,11 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> ListaDeInimigosPrefab; // Lista de prefabs dos inimigos
 
-    private void Awake() 
+    private void Awake()
     {
-
         main = this;
-
     }
+
     void Start()
     {
         InstanciarInimigosAleatorios();
@@ -38,13 +35,14 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < quantidadeDeInimigosParaSpawn; i++)
         {
             // Escolhe um inimigo aleatório da lista
-            int indiceAleatorio = Random.Range(1, ListaDeInimigosPrefab.Count);
+            int indiceAleatorio = Random.Range(0, ListaDeInimigosPrefab.Count); // Corrigido para incluir o 0
             GameObject inimigoPrefab = ListaDeInimigosPrefab[indiceAleatorio];
 
             // Instancia o inimigo no ponto de spawn
             Instantiate(inimigoPrefab, pontoDeSpawn.position, Quaternion.identity);
         }
     }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Final"))
@@ -63,8 +61,8 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Game Over!");
         // Aqui você pode adicionar lógica adicional, como reiniciar o jogo ou voltar ao menu
         Time.timeScale = 0; // Pausa o jogo
-
     }
+
     public void ShowGameOver()
     {
         gameOverUI.SetActive(true);
@@ -73,30 +71,12 @@ public class LevelManager : MonoBehaviour
 
     public void SeMorrerAparece()
     {
-        if (Advertisement.IsReady("Rewarded_Ad"))
+        if (Advertisement.GetPlacementState("Rewarded_Ad") == PlacementState.Ready)
         {
-            ShowOptions options = new ShowOptions
-            {
-                resultCallback = result =>
-                {
-                    if (result == ShowResult.Finished)
-                    {
-                        Debug.Log("Continuação concedida após assistir ao anúncio.");
-                        gameOverUI.SetActive(false);
-                        Time.timeScale = 1; // Retoma o jogo.
-                    }
-                    else if (result == ShowResult.Skipped)
-                    {
-                        Debug.Log("Anúncio pulado, continuação não concedida.");
-                    }
-                    else
-                    {
-                        Debug.LogError("Erro ao exibir o anúncio de continuação.");
-                    }
-                }
-            };
-
+            ShowOptions options = new ShowOptions();
             Advertisement.Show("Rewarded_Ad", options);
+            // Adicione lógica após o anúncio ser exibido
+            // Você pode usar um método separado para lidar com o resultado do anúncio
         }
         else
         {
@@ -104,4 +84,22 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    // Método para lidar com o resultado do anúncio
+    public void HandleAdResult(ShowResult result)
+    {
+        if (result == ShowResult.Finished)
+        {
+            Debug.Log("Continuação concedida após assistir ao anúncio.");
+            gameOverUI.SetActive(false);
+            Time.timeScale = 1; // Retoma o jogo.
+        }
+        else if (result == ShowResult.Skipped)
+        {
+            Debug.Log("Anúncio pulado, continuação não concedida.");
+        }
+        else
+        {
+            Debug.LogError("Erro ao exibir o anúncio de continuação.");
+        }
+    }
 }

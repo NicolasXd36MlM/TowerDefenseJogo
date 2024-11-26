@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
-public class Delegate : MonoBehaviour
+public class Delegates1 : MonoBehaviour
 {
-    public delegate void RewardAction(); // Delegate único para gerenciar recompensas
-    public RewardAction onAdRewarded;   // Instância do delegate
+    public delegate void RewardAction();
+    public RewardAction onAdRewarded;
 
     public string gameId = "5736777"; // Substitua pelo seu Game ID
     public bool testMode = true;
 
-    private bool interstitialSkippable = true; // Alterna entre intersticiais puláveis e não puláveis
-    private bool bannerActive = false;        // Controle de banners
+    private bool bannerActive = false;
 
     void Start()
     {
@@ -20,7 +19,6 @@ public class Delegate : MonoBehaviour
         StartCoroutine(ManageBannerAds());
     }
 
-    // Gerenciamento de Banners
     private IEnumerator ManageBannerAds()
     {
         while (true)
@@ -31,71 +29,16 @@ public class Delegate : MonoBehaviour
                 Advertisement.Banner.Show("banner");
                 bannerActive = true;
 
-                yield return new WaitForSeconds(10); // Banner visível por 10 segundos
+                yield return new WaitForSeconds(10);
                 Advertisement.Banner.Hide();
                 bannerActive = false;
 
-                yield return new WaitForSeconds(5); // Pausa de 5 segundos
+                yield return new WaitForSeconds(5);
             }
-            yield return null; // Evitar loop contínuo
+            yield return null;
         }
     }
 
-    // Exibir intersticiais
-    public void ShowInterstitialAd()
-    {
-        if (Advertisement.IsReady("video"))
-        {
-            var options = new ShowOptions
-            {
-                resultCallback = HandleInterstitialResult
-            };
-
-            Advertisement.Show("video", options);
-        }
-    }
-
-    private void HandleInterstitialResult(ShowResult result)
-    {
-        if (result == ShowResult.Finished || result == ShowResult.Skipped)
-        {
-            Debug.Log("O intersticial foi fechado. Continuando o jogo.");
-            onAdRewarded?.Invoke(); // Notificar que o intersticial terminou
-        }
-    }
-
-    // Exibir anúncios recompensados
-    public void ShowRewardedAd(RewardAction rewardAction)
-    {
-        if (Advertisement.IsReady("rewardedVideo"))
-        {
-            onAdRewarded = rewardAction; // Atribuir ação de recompensa ao delegate
-
-            var options = new ShowOptions
-            {
-                resultCallback = HandleRewardedResult
-            };
-
-            Advertisement.Show("rewardedVideo", options);
-        }
-    }
-
-    private void HandleRewardedResult(ShowResult result)
-    {
-        if (result == ShowResult.Finished)
-        {
-            Debug.Log("Anúncio recompensado assistido.");
-            onAdRewarded?.Invoke(); // Executar recompensa
-        }
-        else if (result == ShowResult.Skipped)
-        {
-            Debug.Log("Anúncio recompensado pulado. Sem recompensa.");
-        }
-        else if (result == ShowResult.Failed)
-        {
-            Debug.LogError("Falha ao exibir o anúncio recompensado.");
-        }
-    }
     public void ShowInterstitialAd(System.Action onComplete)
     {
         string placementId = "Interstitial_Android";
@@ -120,8 +63,11 @@ public class Delegate : MonoBehaviour
             onComplete?.Invoke();
         }
     }
-    public void ShowRewardedAd(System.Action onReward)
+
+    public void ShowRewardedAd(RewardAction rewardAction)
     {
+        onAdRewarded = rewardAction;
+
         string placementId = "Rewarded_Android";
 
         if (Advertisement.GetPlacementState(placementId) == PlacementState.Ready)
@@ -133,7 +79,7 @@ public class Delegate : MonoBehaviour
                     if (result == ShowResult.Finished)
                     {
                         Debug.Log("Anúncio recompensado assistido!");
-                        onReward?.Invoke();
+                        onAdRewarded?.Invoke();
                     }
                     else
                     {
@@ -148,3 +94,4 @@ public class Delegate : MonoBehaviour
         }
     }
 }
+
