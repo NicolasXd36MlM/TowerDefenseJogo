@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Advertisements;
 
 
 public class LevelManager : MonoBehaviour
@@ -16,6 +17,7 @@ public class LevelManager : MonoBehaviour
     public int quantidadeInimigos = 5; // Quantidade de inimigos a serem instanciados
     public int ContadorDeColisao;
     public int MaximoDeColisao = 10;
+    public GameObject gameOverUI; // Referência à UI de Game Over.
 
     [SerializeField]
     private List<GameObject> ListaDeInimigosPrefab; // Lista de prefabs dos inimigos
@@ -61,6 +63,45 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Game Over!");
         // Aqui você pode adicionar lógica adicional, como reiniciar o jogo ou voltar ao menu
         Time.timeScale = 0; // Pausa o jogo
+
+    }
+    public void ShowGameOver()
+    {
+        gameOverUI.SetActive(true);
+        Time.timeScale = 0; // Pausa o jogo.
+    }
+
+    public void SeMorrerAparece()
+    {
+        if (Advertisement.IsReady("Rewarded_Ad"))
+        {
+            ShowOptions options = new ShowOptions
+            {
+                resultCallback = result =>
+                {
+                    if (result == ShowResult.Finished)
+                    {
+                        Debug.Log("Continuação concedida após assistir ao anúncio.");
+                        gameOverUI.SetActive(false);
+                        Time.timeScale = 1; // Retoma o jogo.
+                    }
+                    else if (result == ShowResult.Skipped)
+                    {
+                        Debug.Log("Anúncio pulado, continuação não concedida.");
+                    }
+                    else
+                    {
+                        Debug.LogError("Erro ao exibir o anúncio de continuação.");
+                    }
+                }
+            };
+
+            Advertisement.Show("Rewarded_Ad", options);
+        }
+        else
+        {
+            Debug.LogWarning("Anúncio recompensado não está pronto para continuar.");
+        }
     }
 
 }
