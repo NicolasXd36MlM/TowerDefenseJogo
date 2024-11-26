@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
-public class AdManager : MonoBehaviour
+public class Delegate : MonoBehaviour
 {
     public delegate void RewardAction(); // Delegate único para gerenciar recompensas
     public RewardAction onAdRewarded;   // Instância do delegate
 
-    public string gameId = "1234567"; // Substitua pelo seu Game ID
+    public string gameId = "5736777"; // Substitua pelo seu Game ID
     public bool testMode = true;
 
     private bool interstitialSkippable = true; // Alterna entre intersticiais puláveis e não puláveis
