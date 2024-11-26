@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Advertisements;
 using UnityEngine;
+using UnityEngine.Advertisements;
 public class ads : MonoBehaviour
 {
     /*
@@ -16,7 +17,7 @@ public class ads : MonoBehaviour
             Advertisement.Show(adUnitId, options);
         }
     }
-    private void HandleAdResult(ShowResult result)
+    private void HandleAdResult(ShowResult resultado)
     {
         // Após o anúncio, liberar a próxima onda.
         canSkip = !canSkip; // Alternar entre obrigatório e pulável.

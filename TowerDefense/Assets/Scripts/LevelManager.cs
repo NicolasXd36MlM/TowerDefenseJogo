@@ -7,85 +7,101 @@ using UnityEngine.Advertisements;
 
 public class LevelManager : MonoBehaviour
 {
+   
     public Transform pontoDeSpawn; // Ponto onde os inimigos serão instanciados
-    public int quantidadeDeInimigosPorOnda = 18; // Quantidade de inimigos por onda
+    public int quantidadeDeInimigosParaSpawn = 18; // Quantidade de inimigos a serem instanciados
     public static LevelManager main; // Instância estática para acesso global
     public Transform[] caminho; // Onde o inimigo vai passar
     public Transform começo; // Onde aparece o inimigo
-    public List<GameObject> ListaDeInimigosPrefab; // Lista de prefabs dos inimigos
+    public GameObject prefabInimigo; // Prefab do inimigo
+    public int quantidadeInimigos = 5; // Quantidade de inimigos a serem instanciados
+    public int ContadorDeColisao;
+    public int MaximoDeColisao = 10;
+    public GameObject gameOverUI; // Referência à UI de Game Over.
 
-    private int ondaAtual = 0; // Contador de ondas
-    private bool exibindoAnuncio = false; // Controle de anúncios intersticiais
+    [SerializeField]
+    private List<GameObject> ListaDeInimigosPrefab; // Lista de prefabs dos inimigos
 
-    private void Awake()
+    private void Awake() 
     {
-        main = this;
-    }
 
+        main = this;
+
+    }
     void Start()
     {
-        IniciarNovaOnda();
-    }
-
-    void IniciarNovaOnda()
-    {
-        if (exibindoAnuncio) return; // Garante que a nova onda só inicie após o anúncio
-
-        ondaAtual++;
-
-        if (ondaAtual > 1 && ondaAtual % 2 == 0) // Exibir intersticial a cada 2 ondas (a partir da segunda)
-        {
-            MostrarAnuncioIntersticial(() =>
-            {
-                InstanciarInimigosAleatorios(); // Inicia a nova onda após o anúncio
-            });
-        }
-        else
-        {
-            InstanciarInimigosAleatorios(); // Inicia a nova onda diretamente
-        }
+        InstanciarInimigosAleatorios();
     }
 
     void InstanciarInimigosAleatorios()
     {
-        for (int i = 0; i < quantidadeDeInimigosPorOnda; i++)
+        for (int i = 0; i < quantidadeDeInimigosParaSpawn; i++)
         {
             // Escolhe um inimigo aleatório da lista
-            int indiceAleatorio = Random.Range(0, ListaDeInimigosPrefab.Count);
+            int indiceAleatorio = Random.Range(1, ListaDeInimigosPrefab.Count);
             GameObject inimigoPrefab = ListaDeInimigosPrefab[indiceAleatorio];
 
             // Instancia o inimigo no ponto de spawn
             Instantiate(inimigoPrefab, pontoDeSpawn.position, Quaternion.identity);
         }
-
-        Debug.Log($"Onda {ondaAtual} iniciada com {quantidadeDeInimigosPorOnda} inimigos.");
     }
-    public void MostrarAnuncioIntersticial(System.Action aoTerminar)
+    void OnCollisionEnter(Collision collision)
     {
-        string placementId = "Interstitial_Android"; // Substitua pelo ID do seu placement no painel Unity Ads
-
-        if (Advertisement.GetPlacementState(placementId) == PlacementState.Ready)
+        if (collision.gameObject.CompareTag("Final"))
         {
-            Advertisement.Show(placementId, new ShowOptions
+            ContadorDeColisao++;
+
+            if (ContadorDeColisao >= MaximoDeColisao)
+            {
+                GameOver();
+            }
+        }
+    }
+
+    void GameOver()
+    {
+        Debug.Log("Game Over!");
+        // Aqui você pode adicionar lógica adicional, como reiniciar o jogo ou voltar ao menu
+        Time.timeScale = 0; // Pausa o jogo
+
+    }
+    public void ShowGameOver()
+    {
+        gameOverUI.SetActive(true);
+        Time.timeScale = 0; // Pausa o jogo.
+    }
+
+    public void SeMorrerAparece()
+    {
+        if (Advertisement.IsReady("Rewarded_Ad"))
+        {
+            ShowOptions options = new ShowOptions
             {
                 resultCallback = result =>
                 {
-                    if (result == ShowResult.Finished || result == ShowResult.Skipped)
+                    if (result == ShowResult.Finished)
                     {
-                        aoTerminar?.Invoke(); // Continua após o anúncio
+                        Debug.Log("Continuação concedida após assistir ao anúncio.");
+                        gameOverUI.SetActive(false);
+                        Time.timeScale = 1; // Retoma o jogo.
+                    }
+                    else if (result == ShowResult.Skipped)
+                    {
+                        Debug.Log("Anúncio pulado, continuação não concedida.");
                     }
                     else
                     {
-                        Debug.Log("O anúncio foi fechado antes de terminar.");
-                        aoTerminar?.Invoke(); // Continua mesmo assim
+                        Debug.LogError("Erro ao exibir o anúncio de continuação.");
                     }
                 }
-            });
+            };
+
+            Advertisement.Show("Rewarded_Ad", options);
         }
         else
         {
-            Debug.LogWarning("Anúncio não está pronto.");
-            aoTerminar?.Invoke(); // Continua diretamente se o anúncio não estiver disponível
+            Debug.LogWarning("Anúncio recompensado não está pronto para continuar.");
         }
     }
+
 }
