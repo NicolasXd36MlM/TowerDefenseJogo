@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Advertisements;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class LevelManager : MonoBehaviour
 {
@@ -16,6 +18,9 @@ public class LevelManager : MonoBehaviour
     public int ContadorDeColisao;
     public int MaximoDeColisao = 10;
     public GameObject gameOverUI; // Referência à UI de Game Over.
+    private int score = 0; // Pontuação atual
+    public TextMeshProUGUI scoreText; // Referência ao elemento de texto na UI
+
 
     [SerializeField]
     private List<GameObject> ListaDeInimigosPrefab; // Lista de prefabs dos inimigos
@@ -28,6 +33,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         InstanciarInimigosAleatorios();
+        UpdateScoreText(); // Atualiza o texto ao iniciar
     }
 
     void InstanciarInimigosAleatorios()
@@ -71,17 +77,12 @@ public class LevelManager : MonoBehaviour
 
     public void SeMorrerAparece()
     {
-        if (Advertisement.GetPlacementState("Rewarded_Ad") == PlacementState.Ready)
-        {
+        
             ShowOptions options = new ShowOptions();
             Advertisement.Show("Rewarded_Ad", options);
             // Adicione lógica após o anúncio ser exibido
             // Você pode usar um método separado para lidar com o resultado do anúncio
-        }
-        else
-        {
-            Debug.LogWarning("Anúncio recompensado não está pronto para continuar.");
-        }
+       
     }
 
     // Método para lidar com o resultado do anúncio
@@ -100,6 +101,20 @@ public class LevelManager : MonoBehaviour
         else
         {
             Debug.LogError("Erro ao exibir o anúncio de continuação.");
+        }
+    }
+    public void AddPoints(int points)
+    {
+        score += points;
+        UpdateScoreText(); // Atualiza o texto sempre que os pontos mudarem
+    }
+
+    // Atualiza o texto na tela
+    private void UpdateScoreText()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score;
         }
     }
 }

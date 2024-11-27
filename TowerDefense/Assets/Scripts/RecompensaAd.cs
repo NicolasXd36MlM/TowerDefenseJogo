@@ -22,8 +22,7 @@ public class RecompensaAd : MonoBehaviour
     {
         while (true)
         {
-            if (!bannerActive && Advertisement.IsReady("banner"))
-            {
+            
                 Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
                 Advertisement.Banner.Show("banner");
                 bannerActive = true;
@@ -33,8 +32,7 @@ public class RecompensaAd : MonoBehaviour
                 bannerActive = false;
 
                 yield return new WaitForSeconds(5);
-            }
-            yield return null;
+            
         }
     }
 
@@ -42,16 +40,12 @@ public class RecompensaAd : MonoBehaviour
     {
         string placementId = "Interstitial_Android";
 
-        if (Advertisement.IsReady(placementId))
-        {
+        
             Advertisement.Show(placementId);
             onComplete?.Invoke(); // Chama o callback imediatamente
-        }
-        else
-        {
             Debug.LogWarning("Anúncio intersticial não está pronto.");
             onComplete?.Invoke();
-        }
+        
     }
 
     public void ShowRewardedAd(RewardAction rewardAction)
@@ -60,15 +54,11 @@ public class RecompensaAd : MonoBehaviour
 
         string placementId = "Rewarded_Android";
 
-        if (Advertisement.IsReady(placementId))
-        {
+       
             Advertisement.Show(placementId);
             StartCoroutine(RewardAfterDelay(5f)); // Recompensa após 5 segundos
-        }
-        else
-        {
             Debug.LogWarning("Anúncio recompensado não está pronto.");
-        }
+        
     }
 
     private IEnumerator RewardAfterDelay(float delay)
